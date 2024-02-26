@@ -1,0 +1,61 @@
+.btnDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white ;
+    font-size: large;
+}
+.btnDisabled{
+    color :rgb(136, 128, 128)
+}
+@keyframes loading {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+  
+.loading {
+    text-align: center;
+    animation: loading 0.5s ease-in-out infinite;
+    color: white;
+    
+  }
+
+  .searchDiv {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 1%;
+  }
+  
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 6%;
+  }
+  
+  .inputField {
+    border-radius: 10px;
+    margin-right: 6%;
+    background-color: aliceblue;
+    padding-left: 1%;
+    width: 100%;
+  }
+  
+  .crossButton {
+    position: absolute;
+    right: 6%;
+    cursor: pointer;
+  }
+  .magnifier {
+    margin-right: 6%;
+    cursor: pointer;
+    font-size:x-large ;
+  }
