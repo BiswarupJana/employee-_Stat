@@ -28,14 +28,14 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-// //Limit requests from same API
-// const limiter = rateLimit({
-//   max: 100,
-//   windowMs: 60 * 60 * 1000,
-//   message: "Too many requests from this IP, please try again later!",
-// });
+//Limit requests from same API
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: "Too many requests from this IP, please try again later!",
+});
 
-// app.use("/api", limiter);
+app.use("/api", limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({limit:'10kb'}));
@@ -46,19 +46,7 @@ app.use(mongoSanitize());
 //Data sanitizaton against XSS
 app.use(xss());
 
-// Prevent parameter pollution
-app.use(
-  hpp({
-    whitelist: [
-      "duration",
-      "maxGroupSize",
-      "difficulty",
-      "ratingsAverage",
-      "ratingsQuantity",
-      "price"
-    ],
-  })
-);
+
 
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
@@ -73,9 +61,9 @@ app.use((req, res, next) => {
 
 // 3) Routes
 app.use("/api/v1/dataset",datasetRoute);
-// app.use("/api/v1/tours", tourRouter);
+
 app.use("/api/v1/users", userRouter);
-// app.use("/api/v1/reviews", reviewRouter);
+
 
 app.all("*", (req, res, next) => {
 
