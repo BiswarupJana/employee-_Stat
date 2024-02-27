@@ -1,7 +1,7 @@
 import axios from "axios";
 import xss from 'xss';
 
-const baseApi = "https://swapi.dev/api";
+
 
 const url='http://localhost:5000/api/v1';
 
