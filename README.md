@@ -12,3 +12,5 @@ To start server--
 
 authentication backend implemented - frontend part yet to implement
 all the api collections and environment of postman are in the repo
+
+user role is restricted to ["admin", "hr", 'employee', "manager","tl"]
