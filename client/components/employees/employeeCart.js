@@ -21,9 +21,9 @@ export default function EmployeeCart({
           <p>Department: {department}</p>
           <p>Sub Department: {sub_department}</p>
           <p>
-            Salary:{salary}{' '}{currency}</p>
-            
-            
+            Salary:{salary} {currency}
+          </p>
+          {on_contract && <p>©️ On contact</p>}
         </div>
       </header>
       <div className={classes.content}>

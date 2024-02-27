@@ -3,7 +3,7 @@ export default function Error(){
     return(
         <main className="error">
             <h1>An error occured!</h1>
-            <p>Failed to fetch movies data. Please try again later.</p>
+            <p>Failed to fetch  data. Please try again later.</p>
         </main>
     )
 }

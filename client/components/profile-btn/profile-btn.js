@@ -1,5 +1,7 @@
 'use client';
 import { useState } from "react";
+import Link from "next/link";
+
 
 
 export default function ProfileHeadBtn(){
@@ -9,16 +11,15 @@ export default function ProfileHeadBtn(){
         window.localStorage.clear();
 
     // Redirect to "/auth"
-    window.location.href = "/auth";
+    // window.location.href = '/auth';
     }
 
     return (
         <div>
             {isLoggedIn ?(
                 <div>
-                    <button
-                    onClick={handleLogout}
-                    >Log out</button>
+                   
+                    <Link href='/auth' onClick={handleLogout}>Log Out</Link>
                 </div>
             ):(
                 <div>

@@ -22,7 +22,7 @@ export default function MainHeader() {
                 <NavLink  href="/employee">Employees</NavLink>
             </li>
             <li>
-                <NavLink  href="/peoples">Salary Statistics</NavLink>
+                <NavLink  href="/stats">Salary Statistics</NavLink>
             </li>
             <ProfileHeadBtn />
           </ul>

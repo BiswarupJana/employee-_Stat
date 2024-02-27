@@ -1,4 +1,5 @@
 import axios from "axios";
+import xss from 'xss';
 
 const baseApi = "https://swapi.dev/api";
 
@@ -41,13 +42,66 @@ export async function getEmployee(slug) {
   }
 }
 
-export async function getPeople(slug) {
+export async function addNewEmployee(employee) {
+  const bodydata ={
+    "name": employee.name,
+    "email": employee.email,
+    "salary": employee.salary,
+    "currency": employee.currency,
+    "department": employee.department,
+    "sub_department": employee.sub_department,
+    "on_contract": employee.on_contract
+  }
   try {
-    const response = await axios.get(`${baseApi}/people/${slug}`);
+    const response = await axios.post(`${url}/dataset`,bodydata);
+    
+  } catch (error) {
+    console.error("Error fetching employee data:...", error.message);
+    throw error; 
+  }
+  
+ 
+  
+}
+
+export async function getAllStat(slug) {
+  try {
+    const response = await axios.get(`${url}/dataset/allSummery`);
     
     
     if (response.status === 200) {
-      return response.data;
+      return response.data.data;
+    } else {
+      throw new Error("Failed to fetch people data");
+    }
+  } catch (error) {
+    console.error("Error fetching people data:", error);
+    throw error; 
+  }
+}
+export async function getOnContractStat(slug) {
+  try {
+    const response = await axios.get(`${url}/dataset/onContractSummary`);
+    
+    
+    if (response.status === 200) {
+      return response.data.data;
+    } else {
+      throw new Error("Failed to fetch people data");
+    }
+  } catch (error) {
+    console.error("Error fetching people data:", error);
+    throw error; 
+  }
+}
+export async function getDepartmentStat(value) {
+
+  try {
+    const response = await axios.get(`${url}/dataset/summery/${value}`);
+    
+    
+    if (response.status === 200) {
+      return response.data.data;
     } else {
       throw new Error("Failed to fetch people data");
     }
@@ -57,137 +111,5 @@ export async function getPeople(slug) {
   }
 }
 
-export async function getPrevious({url}) {
-  try {
-    const response = await axios.get(`${url}`);
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
-export async function getNext({url}) {
-  try {
-    const response = await axios.get(`${url}`);
-    
-    
-    if (response.status === 200) {
-      console.log(response.data)
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
 
-export async function getMovies() {
-  try {
-    const response = await axios.get(`${baseApi}/films`);
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
-export async function getMovie(slug) {
-  try {
-    const response = await axios.get(`${baseApi}/films/${slug}`);
-    
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
-export async function getStarships() {
-  try {
-    const response = await axios.get(`${baseApi}/starships`);
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
-export async function getStarship(slug) {
-  try {
-    const response = await axios.get(`${baseApi}/starships/${slug}`);
-    
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
-export async function getPlanets() {
-  try {
-    const response = await axios.get(`${baseApi}/planets`);
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
-export async function getPlanet(slug) {
-  try {
-    const response = await axios.get(`${baseApi}/planets/${slug}`);
-    
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
-export async function getSearch({name,value}) {
-  // console.log(name,value);
-  try {
-    const response = await axios.get(`${baseApi}/${name}/?search=${value}`);
-    
-    
-    if (response.status === 200) {
-      return response.data;
-    } else {
-      throw new Error("Failed to fetch people data");
-    }
-  } catch (error) {
-    console.error("Error fetching people data:", error);
-    throw error; 
-  }
-}
+

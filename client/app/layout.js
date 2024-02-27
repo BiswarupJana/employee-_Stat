@@ -3,8 +3,8 @@ import MainHeader from '@/components/main-header/main-header';
 import './globals.css';
 
 export const metadata = {
-  title: 'Star War',
-  description: 'Star war collection',
+  title: 'Employee Stat',
+  description: 'Statistics',
 };
 
 export default function RootLayout({ children }) {

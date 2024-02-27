@@ -20,13 +20,12 @@ export default async function EmployeeDetailsPage({params}){
             <div className={classes.headerText}>
                 <h1>{employee.name}</h1>
                 <p className={classes.creator}>
-                         Release Date:{' '}{} 
+                         Department:{' '}{employee.department} 
                 </p>
-                <p className={classes.summary}>{`Director: `}</p>
-                <p className={classes.summary}>{`Producer: `}</p>
-                <p className={classes.summary}>{`Episode: `}</p>
-                
-                <p className={classes.instructions} >{`Opening Crawl: `}</p>
+                <p className={classes.summary}>{`Sub Department: ${employee.sub_department}`}</p>
+                <p className={classes.summary}>{`Email: ${employee.email}`}</p>
+                <p className={classes.summary}>{`Salary: ${employee.salary} ${employee.currency}`}</p>
+                {employee.on_contract &&  <p className={classes.summary}>{`On Contract: ${employee.on_contract}`}</p>}
                 
             </div>
         </header>

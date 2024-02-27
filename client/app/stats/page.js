@@ -1,18 +1,18 @@
 import classes from "./page.module.css";
 import Link from "next/link";
 import { Suspense } from "react";
-import Peoples from "@/components/peoples/peoples";
+import Statistic from "@/components/statistic/statistic";
 
-export default function PeoplesPage() {
+export default function StatPage() {
   return (
     <>
       <header className={classes.header}>
         <h1>
-        ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON {" "}
-          <span className={classes.highlight}>DISNEY+</span>
+        ALL  {" "}
+          <span className={classes.highlight}>Statistic</span>
         </h1>
         <p>
-        ~Check Peoples~
+        ~Check Stat~
         </p>
         
       </header>
@@ -22,7 +22,7 @@ export default function PeoplesPage() {
         >
           
         </Suspense> */}
-        <Peoples />
+        <Statistic />
       </main>
     </>
   );

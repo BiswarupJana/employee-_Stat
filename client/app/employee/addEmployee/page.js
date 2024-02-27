@@ -1,18 +1,18 @@
-import classes from './page.module.css';
-import FormSubmit from '@/components/employees/employee-form-submit';
+// import ImagePicker from '@/components/meals/image-picker';
+import classes from "./page.module.css";
+import { addEmployee } from '@/lib/actions';
+import FormSubmit from "@/components/employees/employee-form-submit";
 
-
-export default function AuthPage(){
-    return (
-        <>
-        <header className={classes.header}>
-          <h1>
-             <span className={classes.highlight}> Log In / Sign Up</span>
-          </h1>
-          
-        </header>
-        <main className={classes.main}>
-        <form className={classes.form} >
+export default function AddEmployeePage() {
+  return (
+    <>
+      <header className={classes.header} >
+        <h1>
+          <span className={classes.highlight}>Add New Employee</span>
+        </h1>
+      </header>
+      <main className={classes.main}>
+        <form className={classes.form} action={addEmployee}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
@@ -77,6 +77,6 @@ export default function AuthPage(){
           </p>
         </form>
       </main>
-      </>
-    )
+    </>
+  );
 }
